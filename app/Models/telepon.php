@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class telepon extends Model
 {
+    use hasfactory;
     protected $table = "telepon";
 
     
     // fungsi yang menjelaskan bahwa model telepon terhubung dengan model pengguna
     public function pengguna()
     {
-        return $this->belongsTo('App\Pengguna';)
+        return $this->belongsTo('App\Pengguna');
     }
 }

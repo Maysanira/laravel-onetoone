@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use Illuminate\App\Http\PenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pengguna', 'PenggunaController@index');
+route::get('/pengguna', [\App\Http\Controllers\PenggunaController::class, 'index']);

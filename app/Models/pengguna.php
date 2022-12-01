@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class pengguna extends Model
 {
+    use hasfactory;
     protected $table = 'pengguna';
 
-    memberitahukan tabel pengguna memiliki relasi 1 ke model telepon
+    // memberitahukan tabel pengguna memiliki relasi 1 ke model telepon
     public function telepon()
     {
-        return $this->hasOne('App\Telepon')
+        return $this->hasOne('App\Models\Telepon');
     }
 }
