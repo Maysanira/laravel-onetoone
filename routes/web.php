@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-route::get('/pengguna', [\App\Http\Controllers\PenggunaController::class, 'index']);
+route::resource('/pengguna', \App\Http\Controllers\PenggunaController::class);

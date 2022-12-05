@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class telepon extends Model
 {
     use hasfactory;
+    protected $fillable = [
+        'id',
+        'nomortelepon',
+        'pengguna_id',
+        
+    ];
     protected $table = "telepon";
 
     

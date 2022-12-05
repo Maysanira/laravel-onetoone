@@ -13,6 +13,7 @@
 				<h5 class="text-center my-4">Eloquent One To One Relationship</h5>
 				<table class="table table-bordered table-striped">
 					<thead>
+					<a href="{{route('pengguna.create')}}" class="btn btn-md btn-success mb-3">Tambah Pengguna</a>
 						<tr>
 							<th>Pengguna</th>
 							<th>Nomor Telepon</th>
@@ -23,7 +24,7 @@
 						<tr>
 							<td>{{ $p->nama }}</td>
 							<td>{{ $p->telepon->nomortelepon }}</td>
-						</tr>
+																				</tr>
 						@endforeach
 					</tbody>
 				</table>
