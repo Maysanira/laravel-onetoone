@@ -17,6 +17,7 @@
 						<tr>
 							<th>Pengguna</th>
 							<th>Nomor Telepon</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -24,9 +25,18 @@
 						<tr>
 							<td>{{ $p->nama }}</td>
 							<td>{{ $p->telepon->nomortelepon }}</td>
-																				</tr>
-						@endforeach
+							<td>
+								<a href="{{ route('pengguna.edit', $p->id) }} " >Edit</a>
+													
+							
+							|| <a href="{{ $p->id}} ">Hapus</a>
+							</td>
+						</tr>
+					@endforeach
+
+						
 					</tbody>
+					
 				</table>
 			</div>
 		</div>

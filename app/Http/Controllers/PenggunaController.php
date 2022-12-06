@@ -47,9 +47,48 @@ class PenggunaController extends Controller
         return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 	
-	public function edit(Post $post)
+	public function edit(pengguna $pengguna)
     {
         return view('pengguna.edit', compact('pengguna'));
     }
+    public function update(Request $request, pengguna $pengguna)
+    {
+            //validate form
+             $this->validate($request, [
+            'nama'          => 'required|min:1',
+            'nomortelepon'  => 'required|min:2',
+                
+        ]);
+             //update post without image
+             $pengguna->update([
+            'nama'     => $request->nama,
+            'nomortelepon'   => $request->nomortelepon
+        ]);
+        $pengguna = new pengguna;
+        $pengguna->nama = $pengguna->nama;
+        $pengguna->nomortelepon = $request->nomortelepon;
+        $pengguna->save();
+    }
 
+        public function show(pengguna $pengguna)
+        {
+           
+            return view('pengguna.edit', compact('pengguna'));
+        
+        
+        //redirect to index
+         return redirect()->route('pengguna.penggguna')->with(['success' => 'Data Berhasil Diubah!']);
+        }
+    
+    public function destroy(pengguna $pengguna)
+    {
+      
+        Storage::delete('relasione/pengguna/');
+
+        //delete post
+        $pengguna->delete();
+
+        //redirect to index
+        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
 }
