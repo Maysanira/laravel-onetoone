@@ -25,12 +25,28 @@
 						<tr>
 							<td>{{ $p->nama }}</td>
 							<td>{{ $p->telepon->nomortelepon }}</td>
-							<td>
+
+							<td class="text-center">
+                                        
+                                        <a href="{{ route('pengguna.edit', $p->id) }}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $p->id) }} " method="post" >
+                                    
+
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+											
+                                        </form>
+                                    </td>
+							<!-- <td>
 								<a href="{{ route('pengguna.edit', $p->id) }} " >Edit</a>
 													
-							
-							|| <a href="{{ $p->id}} ">Hapus</a>
-							</td>
+								@csrf
+                                @method('DELETE')
+							|| <a href="{{route('pengguna.destroy', $p->id)}} ">Hapus</a>
+							<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $p->id) }} " method="post" >
+							</form> -->
+						</td>
 						</tr>
 					@endforeach
 

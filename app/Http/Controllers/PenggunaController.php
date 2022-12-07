@@ -49,11 +49,13 @@ class PenggunaController extends Controller
 	
 	public function edit(pengguna $pengguna)
     {
+        
         return view('pengguna.edit', compact('pengguna'));
     }
     public function update(Request $request, pengguna $pengguna)
     {
-            //validate form
+            // dd($request->all());
+        //validate form
              $this->validate($request, [
             'nama'          => 'required|min:1',
             'nomortelepon'  => 'required|min:2',
@@ -62,12 +64,15 @@ class PenggunaController extends Controller
              //update post without image
              $pengguna->update([
             'nama'     => $request->nama,
+           
+        ]);
+        // relasi dari tabel telepon ke tabel pengguna
+        
+        $telepon = telepon::where('pengguna_id', $pengguna->id)->update([
             'nomortelepon'   => $request->nomortelepon
         ]);
-        $pengguna = new pengguna;
-        $pengguna->nama = $pengguna->nama;
-        $pengguna->nomortelepon = $request->nomortelepon;
-        $pengguna->save();
+        //redirect to index
+        return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 
         public function show(pengguna $pengguna)
@@ -77,14 +82,13 @@ class PenggunaController extends Controller
         
         
         //redirect to index
-         return redirect()->route('pengguna.penggguna')->with(['success' => 'Data Berhasil Diubah!']);
+         return redirect()->route('pengguna.pengguna')->with(['success' => 'Data Berhasil Diubah!']);
         }
     
     public function destroy(pengguna $pengguna)
     {
-      
-        Storage::delete('relasione/pengguna/');
-
+        //   dd($pengguna);
+        
         //delete post
         $pengguna->delete();
 

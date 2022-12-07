@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('telepon', function (Blueprint $table) {
-            $table->id();
+        Schema::create('telepons', function (Blueprint $table) {
+            
             $table->varchar('nomortelepon');
-            $table->bigInteger('pengguna_id');
+            $table->bigInteger('pengguna_id')->unsigned()->primary('pengguna_id');
+            $table->string('id')->unique();
             $table->timestamps();
+            $table->foreign('pengguna_id')
+            ->references('id')->on('pengguna') // id yang didapat dari table siswa.
+              ->onDelete('cascade')
+              ->onUpdate('cascade');
         });
     }
 

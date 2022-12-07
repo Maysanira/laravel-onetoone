@@ -32,7 +32,7 @@
                             
                             <div class="form-group">
                                 <label class="font-weight-bold">Nomor telepon</label>
-                                <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" value="{{ $pengguna->nomortelepon }}" placeholder="Masukkan nomor telp Anda">
+                                <input type="number" class="form-control @error('nomortelepon') is-invalid @enderror" name="nomortelepon" value="{{$pengguna->telepon->nomortelepon }}" placeholder="Masukkan nomor telp Anda">
                             
                                 <!-- error message untuk title -->
                                 @error('nomortelepon')
