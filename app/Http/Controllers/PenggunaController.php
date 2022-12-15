@@ -38,10 +38,15 @@ class PenggunaController extends Controller
             'nomortelepon'   => $request->nomortelepon
         ]);
 
-		$nomortelepon = telepon::create([
-		'pengguna_id'      => $pengguna->id,
-		'nomortelepon'   => $request->nomortelepon
-		]);
+        $telepon = new Telepon;
+        $telepon->pengguna_id = $pengguna->id;
+        $telepon->nomortelepon = $request->nomortelepon;
+        $telepon->save();
+
+		// $nomortelepon = telepon::create([
+		// 'pengguna_id'      => $pengguna->id,
+		// 'nomortelepon'   => $request->nomortelepon
+		// ]);
 		
         //redirect to index
         return redirect()->route('pengguna.index')->with(['success' => 'Data Berhasil Disimpan!']);

@@ -9,7 +9,7 @@ class pengguna extends Model
 {
     use hasfactory;
     protected $fillable = [
-        'id',
+        
         'nama',
         
     ];

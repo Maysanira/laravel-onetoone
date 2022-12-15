@@ -13,16 +13,28 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('telepons', function (Blueprint $table) {
+        Schema::create('telepon', function (Blueprint $table) {
             
-            $table->varchar('nomortelepon');
-            $table->bigInteger('pengguna_id')->unsigned()->primary('pengguna_id');
-            $table->string('id')->unique();
+            
+            $table->bigInteger('pengguna_id')
+            ->unsigned();
+            $table->string('nomortelepon')->unique();
             $table->timestamps();
             $table->foreign('pengguna_id')
-            ->references('id')->on('pengguna') // id yang didapat dari table siswa.
+            ->references('id')->on('pengguna') // id yang didapat dari table pegawai.
               ->onDelete('cascade')
               ->onUpdate('cascade');
+           
+                 
+           
+           
+            // $table->varchar('nomortelepon');
+            // $table->bigInteger('pengguna_id')->unsigned()->primary('pengguna_id');
+            // $table->timestamps();
+            // $table->foreign('pengguna_id')
+            // ->references('id')->on('pengguna') // id yang didapat dari table siswa.
+            //   ->onDelete('cascade')
+            //   ->onUpdate('cascade');
         });
     }
 

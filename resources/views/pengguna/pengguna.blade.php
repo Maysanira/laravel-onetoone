@@ -38,15 +38,7 @@
 											
                                         </form>
                                     </td>
-							<!-- <td>
-								<a href="{{ route('pengguna.edit', $p->id) }} " >Edit</a>
-													
-								@csrf
-                                @method('DELETE')
-							|| <a href="{{route('pengguna.destroy', $p->id)}} ">Hapus</a>
-							<form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('pengguna.destroy', $p->id) }} " method="post" >
-							</form> -->
-						</td>
+													</td>
 						</tr>
 					@endforeach
 
